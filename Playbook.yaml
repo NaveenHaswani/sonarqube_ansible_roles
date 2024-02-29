@@ -1,0 +1,6 @@
+- name: Install SonarQube using Docker
+  hosts: websonar
+  become: yes
+  gather_facts: true
+  roles:
+    - Sonarqube

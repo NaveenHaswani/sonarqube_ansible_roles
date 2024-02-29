@@ -1,0 +1,7 @@
+[websonar]
+websonar ansible_host=13.126.121.219
+
+
+[websonar:vars]
+ansible_ssh_private_key_file=/home/naveen/Downloads/MH-01.pem
+ansible_user=ubuntu

@@ -1,0 +1,35 @@
+---
+- name: Install Docker
+  become: yes
+  apt:
+    name: docker.io
+    state: present
+
+- name: Install Docker Compose
+  become: yes
+  apt:
+    name: docker-compose
+    state: present
+
+- name: Increase vm.max_map_count kernel parameter
+  sysctl:
+    name: vm.max_map_count
+    value: 262144
+    state: present
+    reload: yes
+
+- name: Copy SonarQube environment file
+  copy:
+    src: sonarqube.env
+    dest: /opt/sonarqube/
+    mode: 0644
+
+- name: Copy Docker Compose file
+  template:
+    src: sonarqube.docker-compose.yml.j2
+    dest: /opt/sonarqube/docker-compose.yml
+
+- name: Execute Docker Compose
+  command: docker-compose up -d
+  args:
+    chdir: /opt/sonarqube

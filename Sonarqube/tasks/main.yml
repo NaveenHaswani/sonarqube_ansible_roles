@@ -1,4 +1,9 @@
 ---
+- name: cache update
+  become: yes
+  apt:
+    update_cache: yes
+
 - name: Install Docker
   become: yes
   apt:

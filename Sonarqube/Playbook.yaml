@@ -1,0 +1,8 @@
+- name: Install SonarQube using Docker
+  hosts: aws_ec2
+  become: yes
+  become_method: sudo
+  remote_user: ubuntu
+  gather_facts: true
+  roles:
+    - Sonarqube

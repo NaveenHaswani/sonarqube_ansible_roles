@@ -1,5 +1,5 @@
 - name: Install SonarQube using Docker
-  hosts: websonar
+  hosts: aws_ec2
   become: yes
   gather_facts: true
   roles:

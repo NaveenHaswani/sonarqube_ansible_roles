@@ -5,8 +5,8 @@ regions:
 
 filters:
   tag:Name:
-    - private-instance-01-1
-    - private-instance-02-2
+    - sonar-private-instance-1
+    - sonar-private-instance-2
     
 compose:
   ansible_host: private_ip_address
